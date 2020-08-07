@@ -1,0 +1,29 @@
+version: 2.1
+orbs:
+  node: circleci/node@2.0.1
+  slack: circleci/slack@3.4.2
+jobs:
+  build-and-deploy:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
+      - node/install:
+          node-version: "13.14.0"
+      - run: npm install
+      - run:
+          name: Tar Deploy
+          command: |
+            sudo tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./package.json ./src/*
+      - run: sudo npm install -g caprover
+      - run:
+          name: Caprover Deploy
+          command: |
+            sudo caprover deploy -h $CAPROVER_SERVER -t ./deploy.tar -p $CAPROVER_PASSWORD -a $CAPROVER_APP_NAME
+      - slack/status:
+          webhook: $SLACK_WEBHOOK
+workflows:
+  build-deploy:
+    jobs:
+      - build-and-deploy:
+          context: "Caprover Authentication"
