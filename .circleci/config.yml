@@ -11,6 +11,7 @@ jobs:
       - node/install:
           node-version: "13.14.0"
       - run: npm install
+      - run: npm install --prefix client && npm run build --prefix client
       - run:
           name: Tar Deploy
           command: |

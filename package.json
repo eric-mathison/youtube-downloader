@@ -8,26 +8,34 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "dev": "nodemon --watch src src/index.js",
+        "dev": "concurrently \"nodemon --watch src src/index.js\" \"npm run start --prefix client\"",
+        "server": "nodemon --watch src src/index.js",
         "start": "node src/index.js",
         "lint": "eslint src test",
         "test": "NODE_ENV='test' MUTE_MORGAN=on mocha --exit"
     },
     "dependencies": {
+        "amqplib": "^0.6.0",
+        "axios": "^0.19.2",
         "body-parser": "^1.19.0",
+        "concurrently": "^5.3.0",
         "cookie-parser": "^1.4.5",
         "cors": "^2.8.5",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
+        "express-validator": "^6.6.1",
+        "form-data": "^3.0.0",
         "memorystore": "^1.6.2",
         "morgan": "^1.10.0",
         "serve-favicon": "^2.5.0",
-        "winston": "^3.3.3"
+        "winston": "^3.3.3",
+        "ytdl-core": "^3.2.1",
+        "ytpl": "^0.3.0"
     },
     "devDependencies": {
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",
-        "eslint": "^7.6.0",
+        "eslint": "^6.6.0",
         "eslint-config-airbnb-base": "^14.1.0",
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-import": "^2.20.2",
