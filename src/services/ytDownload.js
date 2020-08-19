@@ -9,6 +9,11 @@ const { sanitizeFilename } = require('../utils/index');
 async function downloadVideo(videoId) {
     logger.debug('Getting Download Info');
 
+    const uploadDir = path.join(__dirname, '..', '..', 'uploads');
+    if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir);
+    }
+
     return new Promise((resolve, reject) => {
         const COOKIE =
             'SID=zget9zcXjc8bvE7chJGu-GzCgWVHkavbzohlbGV_naAXwcUEO70kmfWuNMKvxTX9LBKW2Q.; HSID=AbTWkhzv1zpwbTxrQ; SSID=AhmT3LFVwFcYT_c7J';
