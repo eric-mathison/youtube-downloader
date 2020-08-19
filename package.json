@@ -8,7 +8,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "dev": "concurrently \"nodemon --watch src src/index.js\" \"npm run start --prefix client\"",
+        "dev": "concurrently \"nodemon --watch src src/index.js\" \"npm run start --prefix src/client\"",
         "server": "nodemon --watch src src/index.js",
         "start": "node src/index.js",
         "lint": "eslint src test",

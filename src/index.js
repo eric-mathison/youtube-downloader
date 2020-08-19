@@ -51,19 +51,15 @@ app.use(
     })
 );
 
-app.get('/', (req, res) => {
-    res.send({});
-});
-
 require('./routes/index')(app);
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+// if (process.env.NODE_ENV === 'production') {
+app.use(express.static('client/build'));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+// }
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
