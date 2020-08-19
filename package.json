@@ -2,7 +2,7 @@
     "name": "youtube-downloader",
     "version": "2.0.0",
     "description": "Downloads videos from Youtube for your pleasure",
-    "main": "lib/index.js",
+    "main": "src/index.js",
     "author": "Eric Mathison <eric.l.mathison@gmail.com>",
     "repository": "",
     "license": "MIT",
