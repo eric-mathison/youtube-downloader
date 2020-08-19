@@ -15,7 +15,7 @@ jobs:
             - run:
                   name: Tar Deploy
                   command: |
-                      sudo tar -cvf ./deploy.tar --exclude='*.map' --exclude='./src/client/node_modules/*' ./captain-definition ./package.json ./src/* ./src/client/build/*
+                      sudo tar -cvf ./deploy.tar --exclude='*.map' --exclude='./src/client/node_modules/*' ./captain-definition ./package.json ./src/*
             - run: sudo npm install -g caprover
             - run:
                   name: Caprover Deploy
