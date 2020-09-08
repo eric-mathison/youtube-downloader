@@ -6,4 +6,7 @@ module.exports = {
     synoUser: process.env.SYNO_USER,
     synoPass: process.env.SYNO_PASS,
     amqpURL: process.env.AMQP_URL,
+    sid: process.env.SID,
+    hsid: process.env.HSID,
+    ssid: process.env.SSID,
 };

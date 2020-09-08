@@ -4,6 +4,7 @@ const ytdl = require('ytdl-core');
 const ytpl = require('ytpl');
 const axios = require('axios');
 const logger = require('../config/logger');
+const keys = require('../config/keys');
 const { sanitizeFilename } = require('../utils/index');
 
 async function downloadVideo(videoId) {
@@ -15,8 +16,7 @@ async function downloadVideo(videoId) {
     }
 
     return new Promise((resolve, reject) => {
-        const COOKIE =
-            'SID=zget9zcXjc8bvE7chJGu-GzCgWVHkavbzohlbGV_naAXwcUEO70kmfWuNMKvxTX9LBKW2Q.; HSID=AbTWkhzv1zpwbTxrQ; SSID=AhmT3LFVwFcYT_c7J';
+        const COOKIE = `SID=${keys.sid}; HSID=${keys.hsid}; SSID=${keys.ssid};`;
 
         logger.debug('Beginning Download');
         try {
