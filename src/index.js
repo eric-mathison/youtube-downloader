@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
@@ -17,8 +16,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ limit: '25mb', extended: true }));
-app.use(bodyParser.json({ limit: '25mb', extended: true }));
+app.use(express.urlencoded({ limit: '25mb', extended: true }));
+app.use(express.json({ limit: '25mb', extended: true }));
 app.use(cookieParser());
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

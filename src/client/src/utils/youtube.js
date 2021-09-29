@@ -1,8 +1,11 @@
 import axios from 'axios';
 
+// Insert your youtube API key here
+// This script randomly selects a key to use so you can insert keys 
+// from mutliple projects here to increase daily limits
 const KEY = {
-    1: 'AIzaSyCHftYoVzF61TofUYeSbewiI8ico_blIK4',
-    2: 'AIzaSyBqtRdneM6mtYs9yYxebSFFWVx71ucLWp0',
+    1: '',
+    2: '',
 };
 
 const ytClient = axios.create({
