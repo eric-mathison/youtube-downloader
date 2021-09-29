@@ -66,6 +66,7 @@ deploy.tar
 # Compiled directories
 dist/
 lib/
+build/
 
 # Project specific files
 googleapikey.json
